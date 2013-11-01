@@ -1,0 +1,12 @@
+[color]
+	ui = true
+[core]
+	editor = vim
+[merge]
+	tool = opendiff
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	brd = branch
