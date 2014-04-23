@@ -22,13 +22,11 @@
 
 #   Change Prompt
 #   ------------------------------------------------------------
-    export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+    export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\] (\`if [ \$? = 0 ]; then echo \[\e[33m\]^_^\[\e[0m\]; else echo \[\e[31m\]O_O\[\e[0m\]; fi\`) $ "
 
 #   Set Paths
 #   ------------------------------------------------------------
-    export PATH="$PATH:/usr/local/bin/"
-    export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
-    export PATH="$PATH:~/bin"
+    export PATH="$PATH:/usr/bin/:/usr/local/bin/:/usr/local/sbin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/:~/.local/bin/"
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
@@ -46,6 +44,8 @@
     export CLICOLOR=1
     export LSCOLORS=ExFxBxDxCxegedabagacad
 
+#   Source bashmark
+    source ~/.local/bin/bashmarks.sh
 
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
@@ -77,6 +77,7 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and ju
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
@@ -301,3 +302,12 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   10. Git
 #   ---------------------------------------
 [ -f ~/.git-bash-completion.sh ] && . ~/.git-bash-completion.sh
+
+##
+# Your previous /Users/andrewli/.bash_profile file was backed up as /Users/andrewli/.bash_profile.macports-saved_2013-11-03_at_15:58:09
+##
+
+# MacPorts Installer addition on 2013-11-03_at_15:58:09: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
